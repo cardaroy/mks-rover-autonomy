@@ -1,0 +1,298 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="eve">
+
+    <xacro:arg name="mesh_path" default="package://mks_description/meshes"/>
+
+    <link name="root" />
+
+
+    <link name="chassis">
+        <visual>
+            <origin xyz="0 0 0.0" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/chassis.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/simplified_meshes/chassis_simp.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="5.0"/>
+            <inertia ixx="0.013" ixy="0" ixz="0" iyy="0.009" iyz="0" izz="0.005"/>
+        </inertial>
+    </link>
+
+    <joint name="base_joint" type="fixed">
+        <parent link="root"/>
+        <child link="chassis"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="front_left_leg">
+        <visual>
+            <origin xyz="-0.247 0.058093 -0.025691" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/front_left_leg.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.247 0.058093 -0.025691" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/simplified_meshes/front_left_leg_simp.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="1.5"/>
+            <inertia ixx="0.008" ixy="0" ixz="0" iyy="0.008" iyz="0" izz="0.0009"/>
+        </inertial>
+    </link>
+
+    <link name="front_right_leg">
+        <visual>
+            <origin xyz="0.247 0.058093 -0.025691" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/front_right_leg.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.247 0.058093 -0.025691" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/simplified_meshes/front_right_leg_simp.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="1.5"/>
+            <inertia ixx="0.008" ixy="0" ixz="0" iyy="0.008" iyz="0" izz="0.0009"/>
+        </inertial>
+    </link>
+
+    <link name="back_left_leg">
+        <visual>
+            <origin xyz="-0.247 -0.058093 -0.025691" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/back_left_leg.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.247 -0.058093 -0.025691" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/simplified_meshes/back_left_leg_simp.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="1.5"/>
+            <inertia ixx="0.008" ixy="0" ixz="0" iyy="0.008" iyz="0" izz="0.0009"/>
+        </inertial>
+    </link>
+
+    <link name="back_right_leg">
+        <visual>
+            <origin xyz="0.247 -0.058093 -0.025691" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/back_right_leg.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.247 -0.058093 -0.025691" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/simplified_meshes/back_right_leg_simp.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="1.5"/>
+            <inertia ixx="0.008" ixy="0" ixz="0" iyy="0.008" iyz="0" izz="0.0009"/>
+        </inertial>
+    </link>
+
+    <link name="front_left_wheel">
+        <visual>
+            <origin xyz="-0.3395 0.445997 -0.016173" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/front_left_wheel.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.3395 0.445997 -0.016173" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/simplified_meshes/front_left_wheel_simp.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.8"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.0009" iyz="0" izz="0.0009"/>
+        </inertial>
+    </link>
+
+    <link name="front_right_wheel">
+        <visual>
+            <origin xyz="0.3395 0.445997 -0.016173" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/front_right_wheel.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.3395 0.445997 -0.016173" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/simplified_meshes/front_right_wheel_simp.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.8"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.0009" iyz="0" izz="0.0009"/>
+        </inertial>
+    </link>
+
+    <link name="back_left_wheel">
+        <visual>
+            <origin xyz="-0.3395 0.445997 -0.016173" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/back_left_wheel.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.3395 0.445997 -0.016173" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/simplified_meshes/back_left_wheel_simp.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.8"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.0009" iyz="0" izz="0.0009"/>
+        </inertial>
+    </link>
+
+    <link name="back_right_wheel">
+        <visual>
+            <origin xyz="0.3395 0.445997 -0.016173" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/back_right_wheel.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.3395 0.445997 -0.016173" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <mesh filename="$(arg mesh_path)/simplified_meshes/back_right_wheel_simp.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.8"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.0009" iyz="0" izz="0.0009"/>
+        </inertial>
+    </link>
+
+    <joint name="front_left_leg_to_chassis" type="revolute">
+        <parent link="chassis"/>
+        <child link="front_left_leg"/>
+        <origin xyz="0.247 -0.058093 +0.025691" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="0" upper="${pi/3}" velocity="1.0" effort="5.0"/>
+    </joint>
+
+    <joint name="front_right_leg_to_chassis" type="revolute">
+        <parent link="chassis"/>
+        <child link="front_right_leg"/>
+        <origin xyz="-0.247 -0.058093 +0.025691" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="0" upper="${pi/3}" velocity="1.0" effort="5.0"/>
+    </joint>
+
+    <joint name="back_left_leg_to_chassis" type="revolute">
+        <parent link="chassis"/>
+        <child link="back_left_leg"/>
+        <origin xyz="0.247 0.058093 +0.025691" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-${pi/3}" upper="0" velocity="1.0" effort="5.0"/>
+    </joint>
+
+    <joint name="back_right_leg_to_chassis" type="revolute">
+        <parent link="chassis"/>
+        <child link="back_right_leg"/>
+        <origin xyz="-0.247 0.058093 +0.025691" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-${pi/3}" upper="0" velocity="1.0" effort="5.0"/>
+    </joint>
+
+    <joint name="front_left_wheel_to_leg" type="continuous">
+        <parent link="front_left_leg"/>
+        <child link="front_left_wheel"/>
+        <origin xyz="0.0925 -0.387904 -0.009518" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+
+    <joint name="front_right_wheel_to_leg" type="continuous">
+        <parent link="front_right_leg"/>
+        <child link="front_right_wheel"/>
+        <origin xyz="-0.0925 -0.387904 -0.009518" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+
+    <joint name="back_left_wheel_to_leg" type="continuous">
+        <parent link="back_left_leg"/>
+        <child link="back_left_wheel"/>
+        <origin xyz="0.0925 0.387904 -0.009518" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+
+    <joint name="back_right_wheel_to_leg" type="continuous">
+        <parent link="back_right_leg"/>
+        <child link="back_right_wheel"/>
+        <origin xyz="-0.0925 0.387904 -0.009518" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+
+    <ros2_control name="GazeboSimSystem" type="system">
+        <hardware>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+        </hardware>
+        <joint name="front_left_wheel_to_leg">
+        <command_interface name="velocity">
+            <param name="min">-1</param>
+            <param name="max">1</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        </joint>
+        <joint name="front_right_wheel_to_leg">
+        <command_interface name="velocity">
+            <param name="min">-1</param>
+            <param name="max">1</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        </joint>
+        <joint name="back_left_wheel_to_leg">
+        <command_interface name="velocity">
+            <param name="min">-1</param>
+            <param name="max">1</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        </joint>
+        <joint name="back_right_wheel_to_leg">
+        <command_interface name="velocity">
+            <param name="min">-1</param>
+            <param name="max">1</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        </joint>
+    </ros2_control>
+
+    <gazebo>
+        <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+            <parameters>$(find mks_description)/config/eve_controller.yaml</parameters>
+        </plugin>
+    </gazebo>
+</robot>

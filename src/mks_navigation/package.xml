@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>mks_navigation</name>
+  <version>0.0.1</version>
+  <description>Nav2 bringup wrapper and parameterization for MKS rover.</description>
+  <maintainer email="mukundsrinivasan0@gmail.com">mksneo</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>nav2_bringup</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

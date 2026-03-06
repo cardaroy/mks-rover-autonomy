@@ -1,0 +1,436 @@
+<sdf version='1.7'>
+  <model name='eve'>
+    <link name='root'>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>5</mass>
+        <inertia>
+          <ixx>0.013</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.009</iyy>
+          <iyz>0</iyz>
+          <izz>0.005</izz>
+        </inertia>
+      </inertial>
+      <collision name='root_fixed_joint_lump__chassis_collision'>
+        <pose>0 0 0 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/simplified_meshes/chassis_simp.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='root_fixed_joint_lump__chassis_visual'>
+        <pose>0 0 0 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/chassis.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='back_left_leg_to_chassis' type='revolute'>
+      <pose relative_to='root'>0.247 0.058093 0.025691 0 -0 0</pose>
+      <parent>root</parent>
+      <child>back_left_leg</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1.0472</lower>
+          <upper>0</upper>
+          <effort>5</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='back_left_leg'>
+      <pose relative_to='back_left_leg_to_chassis'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.008</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.008</iyy>
+          <iyz>0</iyz>
+          <izz>0.0009</izz>
+        </inertia>
+      </inertial>
+      <collision name='back_left_leg_collision'>
+        <pose>-0.247 -0.058093 -0.025691 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/simplified_meshes/back_left_leg_simp.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='back_left_leg_visual'>
+        <pose>-0.247 -0.058093 -0.025691 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/back_left_leg.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='back_left_wheel_to_leg' type='revolute'>
+      <pose relative_to='back_left_leg'>0.0925 0.387904 -0.009518 0 -0 0</pose>
+      <parent>back_left_leg</parent>
+      <child>back_left_wheel</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='back_left_wheel'>
+      <pose relative_to='back_left_wheel_to_leg'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.8</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0009</iyy>
+          <iyz>0</iyz>
+          <izz>0.0009</izz>
+        </inertia>
+      </inertial>
+      <collision name='back_left_wheel_collision'>
+        <pose>-0.3395 0.445997 -0.016173 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/simplified_meshes/back_left_wheel_simp.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='back_left_wheel_visual'>
+        <pose>-0.3395 0.445997 -0.016173 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/back_left_wheel.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='back_right_leg_to_chassis' type='revolute'>
+      <pose relative_to='root'>-0.247 0.058093 0.025691 0 -0 0</pose>
+      <parent>root</parent>
+      <child>back_right_leg</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1.0472</lower>
+          <upper>0</upper>
+          <effort>5</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='back_right_leg'>
+      <pose relative_to='back_right_leg_to_chassis'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.008</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.008</iyy>
+          <iyz>0</iyz>
+          <izz>0.0009</izz>
+        </inertia>
+      </inertial>
+      <collision name='back_right_leg_collision'>
+        <pose>0.247 -0.058093 -0.025691 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/simplified_meshes/back_right_leg_simp.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='back_right_leg_visual'>
+        <pose>0.247 -0.058093 -0.025691 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/back_right_leg.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='back_right_wheel_to_leg' type='revolute'>
+      <pose relative_to='back_right_leg'>-0.0925 0.387904 -0.009518 0 -0 0</pose>
+      <parent>back_right_leg</parent>
+      <child>back_right_wheel</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='back_right_wheel'>
+      <pose relative_to='back_right_wheel_to_leg'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.8</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0009</iyy>
+          <iyz>0</iyz>
+          <izz>0.0009</izz>
+        </inertia>
+      </inertial>
+      <collision name='back_right_wheel_collision'>
+        <pose>0.3395 0.445997 -0.016173 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/simplified_meshes/back_right_wheel_simp.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='back_right_wheel_visual'>
+        <pose>0.3395 0.445997 -0.016173 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/back_right_wheel.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='front_left_leg_to_chassis' type='revolute'>
+      <pose relative_to='root'>0.247 -0.058093 0.025691 0 -0 0</pose>
+      <parent>root</parent>
+      <child>front_left_leg</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.0472</upper>
+          <effort>5</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_left_leg'>
+      <pose relative_to='front_left_leg_to_chassis'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.008</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.008</iyy>
+          <iyz>0</iyz>
+          <izz>0.0009</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_left_leg_collision'>
+        <pose>-0.247 0.058093 -0.025691 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/simplified_meshes/front_left_leg_simp.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='front_left_leg_visual'>
+        <pose>-0.247 0.058093 -0.025691 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/front_left_leg.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='front_left_wheel_to_leg' type='revolute'>
+      <pose relative_to='front_left_leg'>0.0925 -0.387904 -0.009518 0 -0 0</pose>
+      <parent>front_left_leg</parent>
+      <child>front_left_wheel</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_left_wheel'>
+      <pose relative_to='front_left_wheel_to_leg'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.8</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0009</iyy>
+          <iyz>0</iyz>
+          <izz>0.0009</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_left_wheel_collision'>
+        <pose>-0.3395 0.445997 -0.016173 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/simplified_meshes/front_left_wheel_simp.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='front_left_wheel_visual'>
+        <pose>-0.3395 0.445997 -0.016173 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/front_left_wheel.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='front_right_leg_to_chassis' type='revolute'>
+      <pose relative_to='root'>-0.247 -0.058093 0.025691 0 -0 0</pose>
+      <parent>root</parent>
+      <child>front_right_leg</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.0472</upper>
+          <effort>5</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_right_leg'>
+      <pose relative_to='front_right_leg_to_chassis'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.008</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.008</iyy>
+          <iyz>0</iyz>
+          <izz>0.0009</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_right_leg_collision'>
+        <pose>0.247 0.058093 -0.025691 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/simplified_meshes/front_right_leg_simp.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='front_right_leg_visual'>
+        <pose>0.247 0.058093 -0.025691 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/front_right_leg.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='front_right_wheel_to_leg' type='revolute'>
+      <pose relative_to='front_right_leg'>-0.0925 -0.387904 -0.009518 0 -0 0</pose>
+      <parent>front_right_leg</parent>
+      <child>front_right_wheel</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_right_wheel'>
+      <pose relative_to='front_right_wheel_to_leg'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.8</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0009</iyy>
+          <iyz>0</iyz>
+          <izz>0.0009</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_right_wheel_collision'>
+        <pose>0.3395 0.445997 -0.016173 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/simplified_meshes/front_right_wheel_simp.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='front_right_wheel_visual'>
+        <pose>0.3395 0.445997 -0.016173 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/mksneo/mks_ws/src/mks_description/meshes/front_right_wheel.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

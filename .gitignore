@@ -1,0 +1,82 @@
+# =========================
+# ROS 2 build artifacts
+# =========================
+build/
+install/
+log/
+
+# colcon
+.colcon/
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+.pytest_cache/
+
+# Virtual environments
+venv/
+.env/
+.envrc
+
+# =========================
+# C / C++
+# =========================
+*.o
+*.a
+*.so
+*.out
+*.exe
+*.dll
+*.dylib
+
+# =========================
+# Editor / IDE files
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# =========================
+# ROS tools / logs
+# =========================
+*.log
+rosbag*/
+*.db3
+
+# =========================
+# Generated messages / interfaces
+# =========================
+**/msg/*.h
+**/srv/*.h
+**/action/*.h
+
+# =========================
+# CMake
+# =========================
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# other
+
+*.gv
+*.pdf
+
+# Ignore everything in meshes folder
+/src/mks_description/meshes/*
+
+# But do not ignore the simplified_meshes folder and its contents
+!/src/mks_description/meshes/simplified_meshes/
+!/src/mks_description/meshes/simplified_meshes/**

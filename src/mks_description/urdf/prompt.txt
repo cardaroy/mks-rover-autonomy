@@ -1,0 +1,10 @@
+im planning on using this urdf to move my robot around in gazebo/rviz and do:
+- teleop
+- slam frontier exploration
+- nav2
+
+apart from the actual visual, collision and inertia, what else does my urdf need- e.g. how do i say there is an rgbd d435i at a certain xyz
+
+---
+
+i am trying to get a single wheel to spin in my ros2 ignition simulation. first, i will tell you what i have. second i will give you the sample code that works, with actual movement in simulation. third you will tell me the components i need to add at a high level. e.g. i may need a config yaml, i may need a new launch file. finally, you will help me make the code. ok?
